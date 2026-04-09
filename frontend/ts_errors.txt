@@ -1,3 +1,0 @@
-﻿src/contexts/AuthContext.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
-src/contexts/AuthContext.tsx(1,53): error TS1484: 'ReactNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
-src/contexts/AuthContext.tsx(3,1): error TS6133: 'api' is declared but its value is never read.
