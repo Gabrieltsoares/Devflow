@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './routes/PrivateRoute'
 import AuthPage from './pages/AuthPage'
+import DashboardPage from './pages/DashboardPage'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
           <Route path="/login" element={<AuthPage></AuthPage>} />
           <Route path="/" element={
             <PrivateRoute>
-              <div>Dashboard</div>
+              <DashboardPage/>
             </PrivateRoute>
           } />
           <Route path="/projects/:id" element={
