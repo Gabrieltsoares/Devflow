@@ -1,4 +1,4 @@
-import {createContext, useContext, useState, ReactNode} from 'react';
+import {createContext, useContext, useState, type ReactNode} from 'react';
 
 interface User {
     name: string
@@ -21,7 +21,12 @@ export function AuthProvider ({ children }: {children:ReactNode}) {
         localStorage.getItem('token')
     )
 
-    const [user, setUser] = useState<User | null>(null)
+    const [user, setUser] = useState<User | null>(() => {
+        const savedToken = localStorage.getItem('token')
+        if (!savedToken) return null
+        const payload = JSON.parse(atob(savedToken.split('.')[1]))
+        return { name: payload.name, email: payload.email }
+    })
 
     function login(token: string) {
         const payload = JSON.parse(atob(token.split('.')[1]))

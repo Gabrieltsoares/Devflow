@@ -3,21 +3,26 @@ import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './routes/PrivateRoute'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
+import Layout from './components/Layout'
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path="/login" element={<AuthPage></AuthPage>} />
-          <Route path="/" element={
+          <Route path='/login' element={<AuthPage />} />
+          <Route path='/' element={
             <PrivateRoute>
-              <DashboardPage/>
+              <Layout>
+                <DashboardPage />
+              </Layout>
             </PrivateRoute>
           } />
-          <Route path="/projects/:id" element={
+          <Route path='/projects/:id' element={
             <PrivateRoute>
-              <div>Projeto</div>
+              <Layout>
+                <div className='p-8 text-white'>Projeto</div>
+              </Layout>
             </PrivateRoute>
           } />
         </Routes>
