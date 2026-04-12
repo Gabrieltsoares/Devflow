@@ -4,6 +4,7 @@ import PrivateRoute from './routes/PrivateRoute'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
 import Layout from './components/Layout'
+import ProjectPage from './pages/ProjectPage'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path='/projects/:id' element={
             <PrivateRoute>
               <Layout>
-                <div className='p-8 text-white'>Projeto</div>
+                <ProjectPage/>
               </Layout>
             </PrivateRoute>
           } />
